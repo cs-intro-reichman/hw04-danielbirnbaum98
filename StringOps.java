@@ -22,7 +22,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        String s = "    hello     world   ";
+        String s = "tWo    wordS";
         char c = 'l';
         //System.out.println(allIndexOf(s, c));
         //System.out.println(capVowelsLowRest(s));
@@ -63,7 +63,7 @@ public class StringOps {
             c = string.charAt(i);
             if (c >= 'A' && c <= 'Z')
             {
-            c = (char)(c - 32); 
+            c = (char)(c + 32); 
             }
             mod_string = mod_string + c;
        }   
