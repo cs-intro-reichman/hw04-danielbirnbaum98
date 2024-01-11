@@ -22,8 +22,11 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        String s = "One two tHRee world";
-        System.out.println(capVowelsLowRest(s));
+        String s = "    hello     world   ";
+        char c = 'l';
+        //System.out.println(allIndexOf(s, c));
+        //System.out.println(capVowelsLowRest(s));
+        System.out.println(camelCase(s));
     }
 
     public static String capVowelsLowRest (String string) 
@@ -34,13 +37,13 @@ public class StringOps {
         for (int i = 0; i < string.length(); i++)
         {
             Character c = string.charAt(i);
-            if (vowels.indexOf(c) == -1 && (string.charAt(i) >= 'B') && (string.charAt(i) <= 'Z'))
+            if (vowels.indexOf(c) == -1 && (string.charAt(i) >= 'A') && (string.charAt(i) <= 'Z'))
             {
                 c = (char)(c + 32);
             }
             else 
             {
-                if (!(vowels.indexOf(c) == -1)  && string.charAt(i) >= 'a' && string.charAt(i) <= 'z')
+                if ((vowels.indexOf(c) != -1)  && string.charAt(i) >= 'a' && string.charAt(i) <= 'z')
                 {
                     c = (char)(c - 32);
                 }
@@ -50,13 +53,68 @@ public class StringOps {
         return new_string;
     }
 
-    public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+    public static String camelCase (String string) 
+    {
+        String mod_string = "";
+        String final_string = "";
+        Character c;
+       for (int i = 0; i < string.length(); i++)
+       {
+            c = string.charAt(i);
+            if (c >= 'A' && c <= 'Z')
+            {
+            c = (char)(c - 32); 
+            }
+            mod_string = mod_string + c;
+       }   
+        while (mod_string.charAt(0) == 32 || string.charAt(mod_string.length() - 1) == 32)
+        {
+            if (mod_string.charAt(0) == 32)
+            {
+                mod_string = mod_string.substring(1);
+            }
+            if (mod_string.charAt(mod_string.length() - 1) == 32)
+            {
+               mod_string = mod_string.substring(0, mod_string.length() - 1);
+            }
+        }
+        for (int i = 0; i < mod_string.length(); i++)
+        {
+            if (mod_string.charAt(i) == 32)
+            {
+                if (mod_string.charAt(i + 1) >= 'a' && mod_string.charAt(i + 1) <= 'z')
+                {
+                    final_string = final_string + " " +(char)(mod_string.charAt(i + 1) - 32);
+                    i ++;
+                }
+            }
+            else if (mod_string.charAt(i) >= 'a' && mod_string.charAt(i) <= 'z')
+            {
+                final_string = final_string + mod_string.charAt(i);
+            } 
+        }
+        return final_string;
     }
 
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+        int counter = 0;
+        for (int i = 0; i < string.length(); i++)
+        {
+            if (string.charAt(i) == chr)
+            {
+                counter ++;
+            }
+        }
+        int[] indexes = new int[counter];
+        int current_index = 0;
+        for (int i = 0; i < string.length(); i++)
+        {
+            if (string.charAt(i) == chr)
+            {
+                indexes[current_index] = i;
+                current_index ++;
+            }
+        }
+        return indexes;
     }
 }
