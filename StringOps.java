@@ -84,7 +84,7 @@ public class StringOps {
             {
                 if (mod_string.charAt(i + 1) >= 'a' && mod_string.charAt(i + 1) <= 'z')
                 {
-                    final_string = final_string + " " +(char)(mod_string.charAt(i + 1) - 32);
+                    final_string = final_string + (char)(mod_string.charAt(i + 1) - 32);
                     i ++;
                 }
             }
