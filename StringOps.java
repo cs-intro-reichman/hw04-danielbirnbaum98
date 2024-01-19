@@ -37,6 +37,11 @@ public class StringOps {
         for (int i = 0; i < string.length(); i++)
         {
             Character c = string.charAt(i);
+            /*
+            why did you use Character and not char?
+            loved your use of the variable vowels, but why didn't you create a helper isVowel()?
+            could be a lot cleaner
+                */
             if (vowels.indexOf(c) == -1 && (string.charAt(i) >= 'A') && (string.charAt(i) <= 'Z'))
             {
                 c = (char)(c + 32);
@@ -63,6 +68,7 @@ public class StringOps {
             c = string.charAt(i);
             if (c >= 'A' && c <= 'Z')
             {
+            // Bad indentation
             c = (char)(c + 32); 
             }
             mod_string = mod_string + c;
@@ -82,6 +88,7 @@ public class StringOps {
         {
             if (mod_string.charAt(i) == 32)
             {
+                /* why not isLetter()? a lot more readable */
                 if (mod_string.charAt(i + 1) >= 'a' && mod_string.charAt(i + 1) <= 'z')
                 {
                     final_string = final_string + (char)(mod_string.charAt(i + 1) - 32);
