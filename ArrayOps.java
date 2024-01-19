@@ -27,6 +27,7 @@ public class ArrayOps {
                 }
                 
             }
+            // write next time if(!is_found) instead of == false
             if (is_found == false)
             {
                     missingInt = new_array[i];
@@ -107,6 +108,9 @@ public class ArrayOps {
                 }  
             }
         }
+        /*
+        what you have here is an aggressive code copy, you could have done a helper function
+            */
         return final_similar;
     }
 
@@ -135,6 +139,9 @@ public class ArrayOps {
             }
     
         }
+        /* the solution is good, would look better with 2 helpers, isDecreasing(arr), isIncreasing(arr)
+        but it is not mandatory
+            */
         if (increasing || decreasing)
         {
             is_sorted = true;
